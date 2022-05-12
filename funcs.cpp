@@ -18,25 +18,30 @@ void printRange(int left, int right){
 
   }
 
-//sum(left, right) = left + sum(left + 1, right)
+
 //Task B
 
 int sumRange(int left, int right){
-  int sum;
 
-  if(left < right){
-    sum += left;
-    left++;
-    
-    sumRange(left, right);
-    //sumRange(left, right) = left + sumRange(left++, right);
+  if(left <= right){
+    return left + sumRange(left + 1, right);
   }
-  else if (left == right || left > right)
-    std::cout << ' ';
+  else
+    return 0;
 
-  return sum;
 }
 
+
+//Task C
+
+int sumArray(int *arr, int size)
+{
+    if(size > 0) 
+    { 
+        return arr[size - 1] + sumArray(arr, size - 1);
+    }
+    return 0;
+}
 
 
 
@@ -61,6 +66,28 @@ int main() {
   
   int y = sumRange(-2, 10);
   std::cout << "sumRange(-2, 10) = " << y << std::endl;   // 52
+
+
+  std::cout << "\nTask C\n";
+  int size = 5;
+  int *arr = new int[size]; // allocate array dynamically
+    arr[0] = 10;
+    arr[1] = 5;
+    arr[2] = -2;
+    arr[3] = 100;
+    arr[4] = -40;
+
+    int sum1 = sumArray(arr, size); // Add all elements
+    std::cout << "sumArray(arr, 5) is " << sum1 << std::endl;  // Sum is 73
+    
+    int sum2 = sumArray(arr, 3); // Add up first 3 elements
+    std::cout << "sumArray(arr, 3) is " << sum2 << std::endl;  // Sum is 13
+
+    delete[] arr;         // deallocate it
+
+
+
+
 
   
   return 0;
