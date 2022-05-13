@@ -2,17 +2,19 @@
 #include "doctest.h"
 #include "funcs.h"
 
-TEST_CASE("Task A")
-{
-    std::string result =  printRange(1,5);
-    CHECK(result == "1 2 3 4 5");
-};
+TEST_CASE("Task A") {
+    CHECK(printRange(-2, 10) == "-2 -1 0 1 2 3 4 5 6 7 8 9 10 ");
+    CHECK(printRange(8, 12) == "8 9 10 11 12 ");
+    CHECK(printRange(0, 0) == "0 ");
+    CHECK(printRange(2, 1) == "");
+}
+
 TEST_CASE("Task B")
 {
     
     int result = sumRange(1,3);
     CHECK(result == 6);
-    CHECK(printRange(6,8) == "6 7 8");
+    CHECK(printRange(6,8) == "6 7 8 ");
 }
 TEST_CASE("TASK C"){
     int size = 10;

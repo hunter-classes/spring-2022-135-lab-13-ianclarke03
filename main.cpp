@@ -7,12 +7,12 @@ int main() {
 
   std::cout << "Task A\n";
   std::cout << "printRange(-2, 10)\n";
-  printRange(-2, 10);
+  std::cout << printRange(-2, 10) << std::endl;
   std::cout << "\n";
   std::cout << "printRange(1, 5)\n";
-  printRange(1, 5);
+  std::cout << printRange(1, 5) << std::endl;
   std::cout << "\n";
-
+  
 
 
   std::cout << "\nTask B\n";
