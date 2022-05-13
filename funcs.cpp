@@ -3,20 +3,22 @@
 
 
 //Task A
-void printRange(int left, int right){
 
-  if (left < right){
-    
-    std::cout << left << ' ';
-    left++;
-    
-    printRange(left, right);
+std::string printRange(int left, int right)
+{
+    // for(int i = left; i < right; i++){
+    //     std::cout << i << std::cout;
+    // }
+    if (left > right)
+        return "";
+    if (left == right)
+        return std::to_string(left);
+    else
+        return std::to_string(left) + " " + printRange(left + 1, right);
   }
 
-  else if (left > right)
-    std::cout << ' ';
 
-  }
+
 
 
 //Task B
@@ -79,49 +81,3 @@ bool nestedParens(std::string s)
 
 
 
-int main() {
-
-  std::cout << "Task A\n";
-  std::cout << "printRange(-2, 10)\n";
-  printRange(-2, 10);
-  std::cout << "\n";
-  std::cout << "printRange(10, -2)\n";
-  printRange(10, -2);
-  std::cout << "\n";
-
-
-
-  std::cout << "\nTask B\n";
-  int x = sumRange(1, 3);
-  std::cout << "sumRange(1, 3) = " << x << std::endl;   // 6
-  
-  int y = sumRange(-2, 10);
-  std::cout << "sumRange(-2, 10) = " << y << std::endl;   // 52
-
-
-  std::cout << "\nTask C\n";
-  int size = 5;
-  int *arr = new int[size]; // allocate array dynamically
-    arr[0] = 10;
-    arr[1] = 5;
-    arr[2] = -2;
-    arr[3] = 100;
-    arr[4] = -40;
-
-    int sum1 = sumArray(arr, size); // Add all elements
-    std::cout << "sumArray(arr, 5) is " << sum1 << std::endl;  // Sum is 73
-    
-    int sum2 = sumArray(arr, 3); // Add up first 3 elements
-    std::cout << "sumArray(arr, 3) is " << sum2 << std::endl;  // Sum is 13
-
-    delete[] arr;         // deallocate it
-
-
-
-  std::cout << "\nTask D\n";
-
-
-
-  
-  return 0;
-}
