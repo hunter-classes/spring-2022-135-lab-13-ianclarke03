@@ -44,6 +44,37 @@ int sumArray(int *arr, int size)
 }
 
 
+#include <cctype>
+
+bool isAlphanumeric(std::string s)
+{
+    if (s.length() == 0)
+    {
+		return true;
+    }
+	if (!isalnum(s[0]))
+    {
+		return false;
+    }
+	return isAlphanumeric(s.substr(1));
+
+}
+
+bool nestedParens(std::string s) 
+{
+    if(s.length() == 0) 
+    { 
+        return true; 
+    } 
+    else if(s[0] == '(' && s[s.length() - 1] == ')') 
+    {
+        return nestedParens(s.substr(1, s.length() - 2));
+    } 
+    else 
+    { 
+        return false;
+    }
+}
 
 
 
@@ -86,6 +117,8 @@ int main() {
     delete[] arr;         // deallocate it
 
 
+
+  std::cout << "\nTask D\n";
 
 
 
